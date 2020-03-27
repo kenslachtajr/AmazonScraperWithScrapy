@@ -21,8 +21,7 @@ NEWSPIDER_MODULE = 'amazontutorial.spiders'
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = True
-
-PROXY_POOL_ENABLED = True
+# PROXY_POOL_ENABLED = True
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
@@ -64,12 +63,22 @@ PROXY_POOL_ENABLED = True
 #    'scrapy_user_agents.middlewares.RandomUserAgentMiddleware': 400,
 # }
 
+# DOWNLOADER_MIDDLEWARES = {
+#     # ...
+#     'scrapy_proxy_pool.middlewares.ProxyPoolMiddleware': 610,
+#     'scrapy_proxy_pool.middlewares.BanDetectionMiddleware': 620,
+#     # ...
+# }
+
 DOWNLOADER_MIDDLEWARES = {
-    # ...
-    'scrapy_proxy_pool.middlewares.ProxyPoolMiddleware': 610,
-    'scrapy_proxy_pool.middlewares.BanDetectionMiddleware': 620,
-    # ...
-}
+    'scrapy_crawlera.CrawleraMiddleware': 610
+    }
+CRAWLERA_ENABLED = True
+CRAWLERA_APIKEY = 'ffce68990dd04bae8e16eb6d7c440b4f'
+
+# DOWNLOADER_MIDDLEWARES = {
+#     'rotating_proxies.middlewares.RotatingProxyMiddleware': 610,
+# }
 
 # Enable or disable extensions
 # See https://docs.scrapy.org/en/latest/topics/extensions.html

@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
-import scrapy, time
+import scrapy
+# import scrapy, time
 from ..items import AmazontutorialItem
 
 
@@ -24,6 +25,6 @@ class AmazonSpiderSpider(scrapy.Spider):
         items['product_price'] = product_price 
         items['product_imagelink'] = product_imagelink 
 
-        time.sleep(5)
+        # time.sleep(5)
         
         yield items
